@@ -1,0 +1,71 @@
+<!-- aaron.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aaron's Invitation</title>
+    <link rel="stylesheet" href="terminal.css">
+</head>
+<body>
+    <div class="container">
+        <pre id="invitation"></pre>
+    </div>
+    <audio id="typingSound" src="typing_sound.mp3" preload="auto"></audio>
+    <script>
+        const invitationText = `
+           _____________________________________________________
+          /                                                     \\
+         |   CONFIDENTIAL                                        |
+         |   Corporate Role Profile                              |
+         |   Role Title: Business Analyst                        |
+         |   Employee Name: Aaron [Redacted]                     |
+         |   Mission Brief:                                      |
+         |                                                       |
+         |   Dear Aaron,                                         |
+         |                                                       |
+         |   Your analytical prowess and attention to detail     |
+         |   have provided valuable insights that have driven    |
+         |   our company's success. Your ability to analyze      |
+         |   complex data and identify trends is a testament to  |
+         |   your expertise in business analysis.                |
+         |                                                       |
+         |   You are hereby required to participate in a virtual |
+         |   data analysis exercise organized by Lethal Company, |
+         |   aimed at uncovering opportunities for growth and    |
+         |   optimization. This exercise will utilize custom     |
+         |   modifications to simulate real-world scenarios      |
+         |   and challenges. Remember: Optimization at ALL COST. |
+         |                                                       |
+         |   You will join us on February 10 at 7:00 pm for this |
+         |   insightful session. Your expertise is greatly       |
+         |   valued, and we look forward to your participation.  |
+         |                                                       |
+         |   Regards,                                            |
+         |   THE COMPANY                                         |
+         \\_______________________________________________________/
+              \\                                                 /
+               \\_______________________________________________/
+        `;
+        let index = 0;
+
+        function typeInvitation() {
+            const invitationElement = document.getElementById("invitation");
+            invitationElement.innerHTML += invitationText.charAt(index);
+            playTypingSound();
+            index++;
+            if (index < invitationText.length) {
+                setTimeout(typeInvitation, 10); // Adjust typing speed here
+            }
+        }
+
+        function playTypingSound() {
+            const typingSound = document.getElementById("typingSound");
+            typingSound.play();
+        }
+
+        typeInvitation();
+    </script>
+</body>
+</html>

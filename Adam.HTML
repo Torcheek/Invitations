@@ -1,0 +1,70 @@
+<!-- adam.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adam's Invitation</title>
+    <link rel="stylesheet" href="terminal.css">
+</head>
+<body>
+    <div class="container">
+        <pre id="invitation"></pre>
+    </div>
+    <audio id="typingSound" src="typing_sound.mp3" preload="auto"></audio>
+    <script>
+        const invitationText = `
+           _____________________________________________________
+          /                                                     \\
+         |   CONFIDENTIAL                                        |
+         |   Corporate Role Profile                              |
+         |   Role Title: Marketing Strategist                    |
+         |   Employee Name: Adam [Redacted]                      |
+         |   Mission Brief:                                      |
+         |                                                       |
+         |   Adam,                                               |
+         |                                                       |
+         |   Your creativity and strategic thinking have been    |
+         |   instrumental in shaping our company's brand and     |
+         |   driving crew engagement. Your ability to develop    |
+         |   innovative marketing strategies sets you apart as a |
+         |   leader in your field.                               |
+         |                                                       |
+         |   You are hereby required to participate in a virtual |
+         |   marketing simulation hosted by Lethal Company,      |
+         |   where your insights will be invaluable in           |
+         |   crafting impactful messaging and driving company    |
+         |   loyalty amongst your fellow crewmembers.            |
+         |                                                       |
+         |   Please join us on February 10 at 7:00 pm for this   |
+         |   dynamic session. Your contributions will be key to  |
+         |   the success of our marketing initiatives.           |
+         |                                                       |
+         |   Regards,                                            |
+         |   THE COMPANY                                         |
+         \\_______________________________________________________/
+              \\                                                 /
+               \\_______________________________________________/
+        `;
+        let index = 0;
+
+        function typeInvitation() {
+            const invitationElement = document.getElementById("invitation");
+            invitationElement.innerHTML += invitationText.charAt(index);
+            playTypingSound();
+            index++;
+            if (index < invitationText.length) {
+                setTimeout(typeInvitation, 10); // Adjust typing speed here
+            }
+        }
+
+        function playTypingSound() {
+            const typingSound = document.getElementById("typingSound");
+            typingSound.play();
+        }
+
+        typeInvitation();
+    </script>
+</body>
+</html>

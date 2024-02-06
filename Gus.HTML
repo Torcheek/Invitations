@@ -1,0 +1,77 @@
+<!-- gustave.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gustave's Invitation</title>
+    <link rel="stylesheet" href="terminal.css">
+</head>
+<body>
+    <div class="container">
+        <pre id="invitation"></pre>
+    </div>
+    <audio id="typingSound" src="typing_sound.mp3" preload="auto"></audio>
+    <script>
+        const invitationText = `
+           _____________________________________________________
+          /                                                     \\
+         |   CONFIDENTIAL                                         |
+         |   Corporate Role Profile                                |
+         |   Role Title: Strategic Innovator                      |
+         |   Employee Name: Gustave [Redacted]                    |
+         |   Mission Brief:                                       |
+         |                                                       |
+         |   Dear Gustave,                                        |
+         |                                                       |
+         |   Your strategic insights and innovative thinking     |
+         |   have made a significant impact within our           |
+         |   organization. Your ability to navigate complex      |
+         |   challenges and drive results sets you apart as a     |
+         |   key asset to our crew.                              |
+         |                                                       |
+         |   You are hereby required to participate in an        |
+         |   important business simulation within the virtual    |
+         |   realm, hosted by our partners at Lethal Company.    |
+         |   Please note that this simulation will incorporate   |
+         |   custom modifications to enhance the experience and  |
+         |   test new functionalities. Your expertise will be    |
+         |   instrumental in shaping our company's strategy and  |
+         |   achieving our corporate objectives.                 |
+         |                                                       |
+         |   Please ensure your attendance on February 10 at     |
+         |   7:00 pm for this critical session. Your            |
+         |   contributions are required and expected. We look    |
+         |   forward to your participation.                     |
+         |                                                       |
+         |   Regards,                                          |
+         |   THE COMPANY                                        |
+         \\_______________________________________________________/
+              \\                                                 /
+               \\_______________________________________________/
+        `;
+        let index = 0;
+
+        function typeInvitation() {
+            const invitationElement = document.getElementById("invitation");
+            invitationElement.innerHTML += invitationText.charAt(index);
+            playTypingSound();
+            index++;
+            if (index < invitationText.length) {
+                setTimeout(typeInvitation, 20); // Adjust typing speed here
+            }
+        }
+
+        function playTypingSound() {
+            const typingSound = document.getElementById("typingSound");
+            typingSound.play();
+        }
+
+        typeInvitation();
+    </script>
+</body>
+</html>
+
+
+

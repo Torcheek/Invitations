@@ -1,0 +1,75 @@
+<!-- teancum.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teancum's Invitation</title>
+    <link rel="stylesheet" href="terminal.css">
+</head>
+<body>
+    <div class="container">
+        <pre id="invitation"></pre>
+    </div>
+    <audio id="typingSound" src="typing_sound.mp3" preload="auto"></audio>
+    <script>
+        const invitationText = `
+           _____________________________________________________
+          /                                                     \\
+         |   CONFIDENTIAL                                        |
+         |   Corporate Role Profile                              |
+         |   Role Title: Operations Manager                      |
+         |   Employee Name: Teancum [Redacted]                   |
+         |   Mission Brief:                                      |
+         |                                                       |
+         |   Dear Teancum,                                       |
+         |                                                       |
+         |   Your exceptional leadership and operational         |
+         |   expertise have been instrumental in driving         |
+         |   efficiency and productivity within our              |
+         |   organization. Your ability to oversee complex       |
+         |   operations with precision and determination is      |
+         |   truly commendable.                                  |
+         |                                                       |
+         |   You are hereby required to participate in a         |
+         |   virtual operational exercise designed to test       |
+         |   your strategic planning and decision-making         |
+         |   skills, organized in collaboration with Lethal      |
+         |   Company. Please note that this exercise will        |
+         |   utilize custom modifications to simulate            |
+         |   real-world scenarios and challenges. Your insights  |
+         |   will be invaluable as we strive to optimize our     |
+         |   company's performance.                              |
+         |                                                       |
+         |   Please ensure your attendance on February 10 at     |
+         |   7:00 pm for this important session. Your presence   |
+         |   is crucial to the success of our objectives.        |
+         |                                                       |
+         |   Regards,                                            |
+         |   THE COMPANY                                         |
+         \\_______________________________________________________/
+              \\                                                 /
+               \\_______________________________________________/
+        `;
+        let index = 0;
+
+        function typeInvitation() {
+            const invitationElement = document.getElementById("invitation");
+            invitationElement.innerHTML += invitationText.charAt(index);
+            playTypingSound();
+            index++;
+            if (index < invitationText.length) {
+                setTimeout(typeInvitation, 10); // Adjust typing speed here
+            }
+        }
+
+        function playTypingSound() {
+            const typingSound = document.getElementById("typingSound");
+            typingSound.play();
+        }
+
+        typeInvitation();
+    </script>
+</body>
+</html>

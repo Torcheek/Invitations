@@ -1,0 +1,74 @@
+<!-- dallyn.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dallyn's Invitation</title>
+    <link rel="stylesheet" href="terminal.css">
+</head>
+<body>
+    <div class="container">
+        <pre id="invitation"></pre>
+    </div>
+    <audio id="typingSound" src="typing_sound.mp3" preload="auto"></audio>
+    <script>
+        const invitationText = `
+           _____________________________________________________
+          /                                                     \\
+         |   CONFIDENTIAL                                        |
+         |   Corporate Role Profile                              |
+         |   Role Title: IT Security Specialist                  |
+         |   Employee Name: Dallyn [Redacted]                    |
+         |   Mission Brief:                                      |
+         |                                                       |
+         |   Dear Dallyn,                                        |
+         |                                                       |
+         |   Your expertise in IT security and risk management   |
+         |   has been crucial in safeguarding our company's      |
+         |   digital assets. Your dedication to ensuring the     |
+         |   integrity and confidentiality of our data is highly |
+         |   commendable.                                        |
+         |                                                       |
+         |   You are hereby required to participate in a         |
+         |   virtual cybersecurity simulation hosted by Lethal   |
+         |   Company, where your skills will be put to the test  |
+         |   in identifying and mitigating potential threats.    |
+         |   This simulation will incorporate custom             |
+         |   modifications to enhance the experience and test    |
+         |   new functionalities. Managing risks may not be so   |
+         |   easy this time around...                            |
+         |                                                       |
+         |   Please ensure your attendance on February 10 at     |
+         |   7:00 pm for this important exercise. Your           |
+         |   vigilance is essential in protecting our company    |
+         |   from cyber risks.                                   |
+         |                                                       |
+         |   Regards,                                            |
+         |   THE COMPANY                                         |
+         \\_______________________________________________________/
+              \\                                                 /
+               \\_______________________________________________/
+        `;
+        let index = 0;
+
+        function typeInvitation() {
+            const invitationElement = document.getElementById("invitation");
+            invitationElement.innerHTML += invitationText.charAt(index);
+            playTypingSound();
+            index++;
+            if (index < invitationText.length) {
+                setTimeout(typeInvitation, 10); // Adjust typing speed here
+            }
+        }
+
+        function playTypingSound() {
+            const typingSound = document.getElementById("typingSound");
+            typingSound.play();
+        }
+
+        typeInvitation();
+    </script>
+</body>
+</html>
